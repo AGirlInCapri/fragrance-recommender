@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Daisy",
+    "brand": "Marc Jacobs",
+    "image": "assets/images/daisy.jpg",
+    "gender": "Female",
+    "ageGroup": "18-25",
+    "olfactoryFamily": "Floral",
+    "season": "Spring",
+    "timeOfDay": "Day",
+    "price": 85,
+    "concentration": "Eau de Parfum",
+    "description": "A fresh and feminine fragrance with floral notes.",
+    "notes": ["Violet", "Strawberry", "Jasmine"],
+    "reviews": [
+      { "user": "Alex", "text": "Lovely and light for spring!" },
+      { "user": "Jamie", "text": "Perfect daily scent." }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Santal 33",
+    "brand": "Le Labo",
+    "image": "assets/images/santal33.jpg",
+    "gender": "Unisex",
+    "ageGroup": "25-40",
+    "olfactoryFamily": "Woody",
+    "season": "Fall",
+    "timeOfDay": "Evening",
+    "price": 150,
+    "concentration": "Eau de Parfum",
+    "description": "A smoky, leathery fragrance with notes of sandalwood.",
+    "notes": ["Sandalwood", "Leather", "Cardamom"],
+    "reviews": [
+      { "user": "Taylor", "text": "Warm and inviting scent." },
+      { "user": "Jordan", "text": "A bit strong initially, but settles nicely." }
+    ]
+  }
+]

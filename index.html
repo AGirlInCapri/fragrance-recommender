@@ -1,76 +1,263 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfume Recommender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filters select, .filters input, .filters button {
+      padding: 10px;
+      font-size: 14px;
+      margin: 5px;
+    }
+
+    .perfume-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .perfume-card {
+      background: #fafafa;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .perfume-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .perfume-detail img.detail-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    button {
+      cursor: pointer;
+      background: #e38cb7;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background: #d2739d;
+    }
+
+    #perfumeDetail {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Perfume Recommender&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Find Your Perfect Perfume&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="filters"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="gender"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Gender&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Female"&gt;Female&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Male"&gt;Male&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Unisex"&gt;Unisex&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="ageGroup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Age Group&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="18-25"&gt;18-25&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="25-40"&gt;25-40&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="40+"&gt;40+&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="olfactoryFamily"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Olfactory Family&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Floral"&gt;Floral&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Woody"&gt;Woody&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Fresh"&gt;Fresh&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Oriental"&gt;Oriental&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="season"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Season&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Spring"&gt;Spring&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Summer"&gt;Summer&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Fall"&gt;Fall&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Winter"&gt;Winter&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="timeOfDay"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Time of Day&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Day"&gt;Day&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Evening"&gt;Evening&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Night"&gt;Night&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="number" id="minPrice" placeholder="Min Price" min="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="number" id="maxPrice" placeholder="Max Price" min="0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="concentration"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Concentration&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Eau de Parfum"&gt;Eau de Parfum&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Eau de Toilette"&gt;Eau de Toilette&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Parfum"&gt;Parfum&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Cologne"&gt;Cologne&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="search" placeholder="Search by name"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="applyFilters()"&gt;Apply Filters&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="perfumeList" class="perfume-list"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="container">
+    <h1>Perfume Recommender</h1>
+
+    <!-- Filters -->
+    <div class="filters">
+      <select id="gender">
+        <option value="">Gender</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Unisex">Unisex</option>
+      </select>
+      <select id="ageGroup">
+        <option value="">Age Group</option>
+        <option value="18-25">18-25</option>
+        <option value="25-40">25-40</option>
+        <option value="40+">40+</option>
+      </select>
+      <select id="olfactoryFamily">
+        <option value="">Olfactory Family</option>
+        <option value="Floral">Floral</option>
+        <option value="Woody">Woody</option>
+        <option value="Fresh">Fresh</option>
+        <option value="Oriental">Oriental</option>
+      </select>
+      <select id="season">
+        <option value="">Season</option>
+        <option value="Spring">Spring</option>
+        <option value="Summer">Summer</option>
+        <option value="Fall">Fall</option>
+        <option value="Winter">Winter</option>
+      </select>
+      <select id="timeOfDay">
+        <option value="">Time of Day</option>
+        <option value="Day">Day</option>
+        <option value="Evening">Evening</option>
+        <option value="Night">Night</option>
+      </select>
+      <input type="number" id="minPrice" placeholder="Min Price" min="0">
+      <input type="number" id="maxPrice" placeholder="Max Price" min="0">
+      <select id="concentration">
+        <option value="">Concentration</option>
+        <option value="Eau de Parfum">Eau de Parfum</option>
+        <option value="Eau de Toilette">Eau de Toilette</option>
+        <option value="Parfum">Parfum</option>
+        <option value="Cologne">Cologne</option>
+      </select>
+      <input type="text" id="search" placeholder="Search by name">
+      <button onclick="applyFilters()">Apply Filters</button>
+    </div>
+
+    <!-- Perfume List -->
+    <div id="perfumeList" class="perfume-list"></div>
+
+    <!-- Perfume Detail Section (dynamically inserted) -->
+    <div id="perfumeDetail" class="perfume-detail"></div>
+  </div>
+
+  <script>
+    const perfumes = [
+      {
+        "id": 1,
+        "name": "Daisy",
+        "brand": "Marc Jacobs",
+        "image": "https://i.imgur.com/FnKxNPu.jpg",
+        "gender": "Female",
+        "ageGroup": "18-25",
+        "olfactoryFamily": "Floral",
+        "season": "Spring",
+        "timeOfDay": "Day",
+        "price": 85,
+        "concentration": "Eau de Parfum",
+        "description": "A fresh and feminine fragrance with floral notes.",
+        "notes": ["Violet", "Strawberry", "Jasmine"],
+        "reviews": [
+          { "user": "Alex", "text": "Lovely and light for spring!" },
+          { "user": "Jamie", "text": "Perfect daily scent." }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Santal 33",
+        "brand": "Le Labo",
+        "image": "https://i.imgur.com/uqFJtXg.jpg",
+        "gender": "Unisex",
+        "ageGroup": "25-40",
+        "olfactoryFamily": "Woody",
+        "season": "Fall",
+        "timeOfDay": "Evening",
+        "price": 150,
+        "concentration": "Eau de Parfum",
+        "description": "A smoky, leathery fragrance with notes of sandalwood.",
+        "notes": ["Sandalwood", "Leather", "Cardamom"],
+        "reviews": [
+          { "user": "Taylor", "text": "Warm and inviting scent." },
+          { "user": "Jordan", "text": "Strong at first, but settles beautifully." }
+        ]
+      }
+    ];
+
+    function displayPerfumes(perfumesToShow) {
+      const list = document.getElementById('perfumeList');
+      const detail = document.getElementById('perfumeDetail');
+      list.innerHTML = '';
+      detail.innerHTML = '';
+
+      if (perfumesToShow.length === 0) {
+        list.innerHTML = '<p>No perfumes match your filters.</p>';
+        return;
+      }
+
+      perfumesToShow.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'perfume-card';
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.brand}</p>
+          <button onclick="viewDetails(${p.id})">View Details</button>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function applyFilters() {
+      const gender = document.getElementById('gender').value;
+      const age = document.getElementById('ageGroup').value;
+      const family = document.getElementById('olfactoryFamily').value;
+      const season = document.getElementById('season').value;
+      const time = document.getElementById('timeOfDay').value;
+      const min = document.getElementById('minPrice').value;
+      const max = document.getElementById('maxPrice').value;
+      const conc = document.getElementById('concentration').value;
+      const search = document.getElementById('search').value.toLowerCase();
+
+      const filtered = perfumes.filter(p => {
+        return (!gender || p.gender === gender)
+          && (!age || p.ageGroup === age)
+          && (!family || p.olfactoryFamily === family)
+          && (!season || p.season === season)
+          && (!time || p.timeOfDay === time)
+          && (!min || p.price >= parseFloat(min))
+          && (!max || p.price <= parseFloat(max))
+          && (!conc || p.concentration === conc)
+          && (!search || p.name.toLowerCase().includes(search));
+      });
+
+      displayPerfumes(filtered);
+    }
+
+    function viewDetails(id) {
+      const perfume = perfumes.find(p => p.id === id);
+      const list = document.getElementById('perfumeList');
+      const detail = document.getElementById('perfumeDetail');
+      list.innerHTML = '';
+      detail.innerHTML = `
+        <img class="detail-image" src="${perfume.image}" alt="${perfume.name}">
+        <h2>${perfume.name}</h2>
+        <h4>${perfume.brand}</h4>
+        <p><strong>Price:</strong> $${perfume.price}</p>
+        <p><strong>Concentration:</strong> ${perfume.concentration}</p>
+        <p><strong>Description:</strong> ${perfume.description}</p>
+        <p><strong>Notes:</strong> ${perfume.notes.join(', ')}</p>
+        <h3>User Reviews</h3>
+        ${perfume.reviews.map(r => `<p><strong>${r.user}:</strong> ${r.text}</p>`).join('')}
+        <br><button onclick="displayPerfumes(perfumes)">🔙 Back to List</button>
+      `;
+    }
+
+    // Initial display
+    document.addEventListener('DOMContentLoaded', () => {
+      displayPerfumes(perfumes);
+    });
+  </script>
 </body>
 </html>

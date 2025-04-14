@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters select, .filters input, .filters button {
+  padding: 10px;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.perfume-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(
+::contentReference[oaicite:0]{index=0}
+ 
